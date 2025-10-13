@@ -1,3 +1,4 @@
-https://java-programming.mooc.fi/part-7/2-algorithms
+https://java-programming.mooc.fi/part-7/3-larger-exercises
+Point average for points giving a passing grade
 
-Static or not
+DO testowaon8ia
