@@ -35,7 +35,10 @@ public class GradeStatUI {
         String format = MessageFormat.format("Point average (all): {0}", grades.average());
         System.out.println(format);
         String format2 = MessageFormat.format("Point average (passing): {0}", grades.averagePass());
-        System.out.println(format);
+        System.out.println(format2);
+        String format3 = MessageFormat.format("Pass percentage:  {0}", grades.passPercentage());
+        System.out.println(format3);
+        grades.printGrades();
 
     }
 
