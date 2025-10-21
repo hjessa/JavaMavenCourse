@@ -1,4 +1,1 @@
-https://java-programming.mooc.fi/part-7/3-larger-exercises
-Point average for points giving a passing grade
-
-//Finding recipes by name
+https://java-programming.mooc.fi/part-8
