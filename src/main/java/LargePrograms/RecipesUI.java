@@ -51,6 +51,9 @@ public class RecipesUI {
         System.out.println("Commands:");
         System.out.println("list - lists the recipes");
         System.out.println("stop - stops the program");
+        System.out.println("find name - searches recipes by name");
+        System.out.println("find cooking time - searches recipes by name");
+        System.out.println("find ingredient");
 
         while(true){
             System.out.print("Enter command: ");
@@ -65,6 +68,34 @@ public class RecipesUI {
                     System.out.println(recipe);
                 }
             }
+
+            if(command.equals("find name")){
+                System.out.println("Searched word");
+                String searchedWord = scanner.nextLine();
+
+                for (Recipe recipe : recipes) {
+                    recipe.findName(searchedWord);
+                }
+
+            }
+            if(command.equals("find cooking time")){
+                System.out.println("Max cooking time");
+                int searchedTime = Integer.valueOf(scanner.nextLine());
+                for (Recipe recipe : recipes) {
+                    recipe.findTime(searchedTime);
+                }
+            }
+
+            if(command.equals("find ingredient")){
+                System.out.println("Ingredient");
+                String searchedWord = scanner.nextLine();
+
+                for (Recipe recipe : recipes) {
+                    recipe.findIngredient(searchedWord);
+                }
+
+            }
+
         }
     }
 }
