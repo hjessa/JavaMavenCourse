@@ -1,4 +1,4 @@
-package Algorithms;
+package Part7.LargePrograms.Algorithms;
 
 import java.util.ArrayList;
 import java.util.Arrays;

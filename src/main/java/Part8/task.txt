@@ -1,0 +1,4 @@
+Programming exercise:
+Liquid Containers 2.0 (2 parts)
+
+https://java-programming.mooc.fi/part-8/1-recap

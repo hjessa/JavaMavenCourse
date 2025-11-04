@@ -1,4 +1,4 @@
-package LargePrograms;
+package Part7.LargePrograms;
 
 import java.text.MessageFormat;
 import java.util.Scanner;
