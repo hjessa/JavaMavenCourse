@@ -1,4 +1,3 @@
-Programming exercise:
-Liquid Containers 2.0 (2 parts)
+Hash Map Keys Correspond to a Single Value at Most
 
-https://java-programming.mooc.fi/part-8/1-recap
+https://java-programming.mooc.fi/part-8/2-hash-map
