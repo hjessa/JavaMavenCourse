@@ -1,3 +1,2 @@
-We find the borrower when searching for the same object that was given as a key to the hash
-
-https://java-programming.mooc.fi/part-8/2-hash-map
+Pairing plates with owners
+https://java-programming.mooc.fi/part-8/3-similarity-of-objects
