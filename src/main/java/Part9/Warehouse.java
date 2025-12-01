@@ -1,8 +1,10 @@
 package Part9;
 
+import java.text.MessageFormat;
+
 public class Warehouse {
 
-    private double capacity;
+    private final double capacity;
     private double balance;
 
     public Warehouse(double capacity){
@@ -13,7 +15,7 @@ public class Warehouse {
             this.capacity=capacity;
         }
 
-        this.balance = this.capacity;
+        this.balance = capacity;
     }
 
     public double getBalance(){
@@ -33,10 +35,10 @@ public class Warehouse {
             return;
         }
 
-        if(this.balance >= amount){
-            this.balance-=amount;
+        if(this.balance > amount){
+            this.balance+=amount;
         }else{
-            this.balance=0;
+            this.balance=this.capacity;
         }
     }
 
@@ -45,12 +47,18 @@ public class Warehouse {
             return 0;
         }
 
-        double spaceLoaded = this.capacity-this.balance;
-
-        if(amount > spaceLoaded){
-            this.balance = this.capacity;
-            return spaceLoaded;
+        if(amount >= this.balance){
+            double balanceTemp = this.balance;
+            this.balance = 0;
+            return balanceTemp;
         }
+        else{
+            this.balance -=amount;
+            return amount;
+        }
+    }
 
+    public String toString(){
+        return MessageFormat.format("balance  = {0} space left {1}",this.balance,this.capacity-this.balance);
     }
 }

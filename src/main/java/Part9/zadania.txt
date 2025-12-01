@@ -1,4 +1,7 @@
-Quiz:
-Polymorphism
+Change History, step 1
+
+dużo do poprawy
+
+https://chatgpt.com/c/692dc8e1-f51c-8325-98f6-e0c09d979e51
 
 https://java-programming.mooc.fi/part-9/1-inheritance
