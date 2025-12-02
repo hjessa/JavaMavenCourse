@@ -40,7 +40,7 @@ public class ChangeHistory {
         if(this.changeLog.isEmpty()){
             return -1;
         }
-        double min = 0;
+        double min = this.changeLog.getFirst();
 
         for (Double v : changeLog) {
             if(v < min){

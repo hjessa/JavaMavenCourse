@@ -11,6 +11,12 @@ public class ProductWarehouse extends Warehouse {
         this.productName = productName;
     }
 
+    public ProductWarehouse(String productName,double capacity, double initialBalance){
+        super(capacity,initialBalance);
+        this.productName = productName;
+    }
+
+
     public String getName(){
         return this.productName;
     }
@@ -21,7 +27,7 @@ public class ProductWarehouse extends Warehouse {
 
     @Override
     public String toString(){
-        return this.getName() + super.toString();
+        return this.getName() +" "+ super.toString();
     }
 
 }

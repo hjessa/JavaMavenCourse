@@ -13,9 +13,20 @@ public class Warehouse {
         }
         else {
             this.capacity=capacity;
-        }
 
-        this.balance = capacity;
+        }
+        this.balance = 0;
+    }
+
+    public Warehouse(double capacity, double initialBalance){
+        if(capacity<= 0){
+            this.capacity =0;
+        }
+        else {
+            this.capacity=capacity;
+
+        }
+        this.balance = initialBalance;
     }
 
     public double getBalance(){
@@ -35,7 +46,9 @@ public class Warehouse {
             return;
         }
 
-        if(this.balance > amount){
+        double spaceLeft = this.howMuchSpaceLeft();
+
+        if(spaceLeft >= amount){
             this.balance+=amount;
         }else{
             this.balance=this.capacity;
