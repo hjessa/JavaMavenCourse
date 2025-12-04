@@ -13,17 +13,23 @@ public class BoxWithMaxWeight extends Box{
     }
 
     public void add(Item item){
-
+        if(capacity - this.getWeight() >= item.getWeight()){
+            this.items.add(item);
+        }
     }
 
     public boolean isInBox(Item item){
-
+        if(this.items.contains(item)){
+            return true;
+        }
+        return false;
     }
 
     public int getWeight(){
         int allWeight = 0;
         for (Item item : items) {
-            allWeight += item.weight;
+            allWeight += item.getWeight();
         }
+        return allWeight;
     }
 }

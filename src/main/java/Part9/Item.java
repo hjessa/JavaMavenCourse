@@ -10,6 +10,10 @@ public class Item {
         this.weight = weight;
     }
 
+    public Item(String name) {
+        this.name =name;
+    }
+
     public boolean equals(Object object){
 
         if(object == this){
@@ -30,5 +34,7 @@ public class Item {
         return this.name.hashCode();
     }
 
-    public
+    public int getWeight(){
+        return this.weight;
+    }
 }
