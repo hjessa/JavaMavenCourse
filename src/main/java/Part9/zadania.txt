@@ -1,4 +1,3 @@
-
-
-
+Part 3
+Box weight
 https://java-programming.mooc.fi/part-9/2-interface

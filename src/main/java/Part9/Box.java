@@ -1,17 +1,29 @@
 package Part9;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
-public abstract class Box {
+public class Box{
 
+    private ArrayList<Packable> items;
+    private double capacity;
+    private double totalWeight;
 
-    public abstract void add(Item item);
+    public Box(double capacity){
+        this.capacity = capacity;
+        this.items = new ArrayList<>();
+        this.totalWeight = 0;
+    }
 
-    public void add(ArrayList<Item> items) {
-        for (Item item : items) {
-            Box.this.add(item);
+    public void add(Packable item){
+
+        if(this.capacity - this.totalWeight >= item.weight()){
+            this.items.add(item);
+            this.totalWeight += item.weight();
         }
     }
 
-    public abstract boolean isInBox(Item item);
+    public String toString(){
+        return MessageFormat.format("Box: {0}, total weight {1}kg",this.items.size(),this.totalWeight);
+    }
 }
