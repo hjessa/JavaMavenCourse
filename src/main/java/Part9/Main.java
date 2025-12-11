@@ -1,23 +1,48 @@
 package Part9;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args){
 
 
-        Box box = new Box(10);
+        Set<String> names = new HashSet<>();
+        names.add("first");
+        names.add("first");
+        names.add("second");
+        names.add("second");
+        names.add("second");
 
-        box.add(new Book("Fyodor Dostoevsky", "Crime and Punishment", 2)) ;
-        box.add(new Book("Robert Martin", "Clean Code", 1));
-        box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
+        System.out.println(returnSize(names));
+//        Box box = new Box(10);
+//
+//        box.add(new Book("Fyodor Dostoevsky", "Crime and Punishment", 2)) ;
+//        box.add(new Book("Robert Martin", "Clean Code", 1));
+//        box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
+//
+//        Box box2 = new Box(3);
+//
+//        box2.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
+//        box2.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
+//        box2.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
+//
+//        System.out.println(box);
+//        System.out.println(box2);
+//
+//
+//        Box box3 = new Box(4.1);
+//        box3.add(box);
+//        box3.add(box2);
+//
+//
+//        System.out.println(box3);
 
-        box.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
-        box.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
-        box.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
 
-        System.out.println(box);
+
+
+//        ArrayList<Packable> box4 = new ArrayList<>();
+
 //        Book book1 = new Book("Fyodor Dostoevsky", "Crime and Punishment", 2);
 //        Book book2 = new Book("Robert Martin", "Clean Code", 1);
 //        Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
@@ -41,6 +66,18 @@ public class Main {
 //        System.out.println(box.isInBox(new Item("Saludo")));
 //        System.out.println(box.isInBox(new Item("Pirkka")));
 
+    }
+    public static int returnSize(List<String> names){
+        int size= names.size();
+        return size;
+    }
+
+    public static int returnSize(Map<String, String> map){
+        return map.size();
+    }
+
+    public static int returnSize(Set<String> set){
+        return set.size();
     }
 
     public static void printPersons(ArrayList<Person> persons){
