@@ -1,4 +1,6 @@
 https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams
 
 Programming exercise:
-Limited numbers
+Unique last names
+
+dokonczyc stream i wyswietlnie edanych w klasie UI
