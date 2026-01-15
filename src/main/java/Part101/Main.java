@@ -1,17 +1,44 @@
 package Part101;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args){
 
         ArrayList<String> inputs = new ArrayList<>();
+        ArrayList<Integer> inputs2 = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
+//        printUserInput(scanner,inputs);
+
+        limitedNumbers(scanner,inputs2);
 //        avgStream(scanner,inputs);
-        avgStreamPosNeg(scanner,inputs);
+//        avgStreamPosNeg(scanner,inputs);
+
+//        List<Integer> numbers = new ArrayList<>();
+//        numbers.add(2);
+//        numbers.add(-2);
+//        numbers.add(4);
+//        numbers.add(-4);
+//
+//        System.out.println(positive(numbers));
+
+//        ArrayList<Integer> numbers = new ArrayList<>();
+//        numbers.add(3);
+//        numbers.add(2);
+//        numbers.add(-17);
+//        numbers.add(-5);
+//        numbers.add(7);
+//
+//        ArrayList<Integer> divisible = divisible(numbers);
+//
+//        divisible.stream()
+//                .forEach(num -> System.out.println(num));
+
     }
 
     static void avgStream(Scanner scanner, ArrayList<String> inputs){
@@ -72,4 +99,51 @@ public class Main {
         }
 
     }
+
+    public static List<Integer> positive(List<Integer> numbers){
+
+        return numbers.stream()
+                .filter(num -> num>0)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static ArrayList<Integer> divisible(ArrayList<Integer> numbers){
+
+        return numbers.stream()
+                .filter(num -> num%5==0 || num%3==0 || num%2==0)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static void printUserInput(Scanner scanner, ArrayList<String> inputs){
+
+        while(true){
+            String input = scanner.nextLine();
+            if(input.isEmpty()){
+                break;
+            }
+            inputs.add(input);
+
+        }
+
+        String result = inputs.stream()
+                .reduce("",(previousString,word)->(previousString + word + "\n"));
+        System.out.println(result);
+    }
+
+    public static void limitedNumbers(Scanner scanner, ArrayList<Integer> inputs){
+
+        while(true){
+            int input = Integer.valueOf(scanner.nextLine());
+            if(input < 0){
+                break;
+            }
+            inputs.add(input);
+
+        }
+        inputs.stream()
+                        .filter(num -> num >= 1 && num <= 5)
+                        .forEach(num -> System.out.println(num));
+    }
+
+
 }
