@@ -30,5 +30,10 @@ public class PersonUI {
             persons.add(new Person(firstName,lastName,bDate));
 
         }
+
+        persons.stream()
+                .map(person -> person.getLastName())
+                .distinct()
+                .forEach(surname -> System.out.println(surname));
     }
 }

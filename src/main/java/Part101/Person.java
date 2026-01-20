@@ -17,7 +17,7 @@ public class Person {
 
 
     public String getLastName() {
-        return this.firstName;
+        return this.lastName;
     }
 
     public int getBirthYear() {

@@ -9,13 +9,15 @@ public class Main {
 
     public static void main(String[] args){
 
-        ArrayList<String> inputs = new ArrayList<>();
-        ArrayList<Integer> inputs2 = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-
+        PersonUI.addPerson(scanner);
+//        ArrayList<String> inputs = new ArrayList<>();
+//        ArrayList<Integer> inputs2 = new ArrayList<>();
+//
+//
 //        printUserInput(scanner,inputs);
-
-        limitedNumbers(scanner,inputs2);
+//
+//        limitedNumbers(scanner,inputs2);
 //        avgStream(scanner,inputs);
 //        avgStreamPosNeg(scanner,inputs);
 
