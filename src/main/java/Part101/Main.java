@@ -1,5 +1,9 @@
 package Part101;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,8 +13,11 @@ public class Main {
 
     public static void main(String[] args){
 
-        Scanner scanner = new Scanner(System.in);
-        PersonUI.addPerson(scanner);
+//        Scanner scanner = new Scanner(System.in);
+//        PersonUI.addPerson(scanner);
+        List<Book> lines = new ArrayList<>();
+        lines = readBooks("src/main/java/Part101/book.txt");
+        lines.forEach(System.out::println);
 //        ArrayList<String> inputs = new ArrayList<>();
 //        ArrayList<Integer> inputs2 = new ArrayList<>();
 //
@@ -147,5 +154,33 @@ public class Main {
                         .forEach(num -> System.out.println(num));
     }
 
+    public static List<String> read(String file){
+
+        ArrayList<String> lines = new ArrayList<>();
+
+        try {
+            Files.lines(Paths.get(file)).forEach(row -> lines.add(row));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        return  lines;
+    }
+
+    public static List<Book> readBooks(String file){
+        List<Book> books = new ArrayList<>();
+
+            try{
+                Files.lines(Paths.get(file))
+                        .map(row -> row.split(","))
+                        .filter(parts -> parts.length >= 4)
+                        .map(parts -> new Book(parts[3],parts[0],Integer.valueOf(parts[2]),Integer.valueOf(parts[1])))
+                        .forEach(book -> books.add(book));
+            }catch (Exception e){
+                System.out.println("Error: "+e.getMessage());
+            }
+
+        return books;
+    }
 
 }

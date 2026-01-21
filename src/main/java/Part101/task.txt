@@ -1,6 +1,5 @@
 https://java-programming.mooc.fi/part-10/1-handling-collections-as-streams
 
-Programming exercise:
-Unique last names
+Files and Streams
 
-dokonczyc stream i wyswietlnie edanych w klasie UI
+
