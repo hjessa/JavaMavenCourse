@@ -20,12 +20,16 @@ public class Literacy implements Comparable<Literacy> {
         this.literacyPercent = literacyPercent;
     }
 
+    public double getLiteracyPercent() {
+        return literacyPercent;
+    }
+
     public String toString(){
         return MessageFormat.format("{0} ({1}), {2}, {3}",this.country,this.year,this.gender,this.literacyPercent);
     }
 
     public int compareTo(Literacy literacy){
-        return (int) (this.literacyPercent - literacy.literacyPercent);
+        return Double.compare(this.literacyPercent, literacy.literacyPercent);
     }
 
 }
