@@ -1,6 +1,7 @@
 package Part102;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class BookUI {
@@ -32,9 +33,14 @@ public class BookUI {
             books.add(new Book(name,ageRec));
         }
 
+        Comparator<Book> comparator = Comparator
+                .comparing(Book::getAgeReccomendation)
+                .thenComparing(Book::getName);
+
+        books.sort(comparator);
+
         for (Book book : books) {
             System.out.println(book);
         }
-
     }
 }
