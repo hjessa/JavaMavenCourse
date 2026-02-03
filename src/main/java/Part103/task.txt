@@ -1,5 +1,3 @@
 https://java-programming.mooc.fi/part-10/3-other-useful-techniques
 
-Regular Expressions
-
-Time of day
+Firing an employee
