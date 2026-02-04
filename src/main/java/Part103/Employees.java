@@ -33,4 +33,16 @@ public class Employees {
                 System.out.println(person);
         }
     }
+
+    public void fire(Education education){
+        Iterator<Person> iterator = employees.iterator();
+
+
+        while(iterator.hasNext()){
+            Person person = iterator.next();
+            if(person.getGrade() == education){
+                iterator.remove();
+            }
+        }
+    }
 }
