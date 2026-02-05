@@ -42,13 +42,15 @@ public class Card implements Comparable<Card>{
         }
 
     }
-
     public int compareTo(Card card){
+        int result = this.value - card.value;
 
-        Comparator<Card> comparator = Comparator
-                .comparing(Card::getValue())
-                .thenComparing(Card::getSuit());
+        if(result == 0){
+            result = this.suit.ordinal() - card.suit.ordinal();
+        }
+        return result;
 
-        return comparator;
     }
+
+
 }

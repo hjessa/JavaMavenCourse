@@ -1,4 +1,4 @@
 https://java-programming.mooc.fi/part-10/2-interface-comparable
 
 
-Ordering books based on their age recommendation
+Sorting cards with different criteria
