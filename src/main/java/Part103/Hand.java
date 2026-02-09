@@ -1,6 +1,7 @@
 package Part103;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hand implements Comparable<Hand>{
 
@@ -34,6 +35,10 @@ public class Hand implements Comparable<Hand>{
                 .reduce(0,(prevVal, val)-> prevVal+val);
 
         return  a-b;
+    }
+
+    public void sortBySuit(){
+        this.hand.sort((c1, c2) -> c1.getSuit().ordinal() - c2.getSuit().ordinal());
     }
 
 }

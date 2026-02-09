@@ -23,18 +23,13 @@ public class Card implements Comparable<Card>{
     }
 
     public String toString(){
-        Map<Integer, String> highCards = new HashMap<>();
 
-        highCards.put(11,"JOPEK");
-        highCards.put(12,"DAMA");
-        highCards.put(13,"KING");
-        highCards.put(14,"ACE");
 
         String cardName = "";
         int num = this.value;
 
         if(num > 10){
-            cardName = highCards.get(num);
+            cardName = CardValueName.fromValue(num).toString();
             return suit+" "+cardName;
         }
         else {

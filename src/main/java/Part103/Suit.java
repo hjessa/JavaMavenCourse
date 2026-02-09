@@ -2,10 +2,10 @@ package Part103;
 
 public enum Suit {
 
+    CLUB,
     DIAMOND,
-    SPADE,
     HEART,
-    CLUB;
+    SPADE;
 
 
 }
