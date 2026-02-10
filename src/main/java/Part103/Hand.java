@@ -2,6 +2,7 @@ package Part103;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Hand implements Comparable<Hand>{
 
@@ -37,8 +38,10 @@ public class Hand implements Comparable<Hand>{
         return  a-b;
     }
 
-    public void sortBySuit(){
-        this.hand.sort((c1, c2) -> c1.getSuit().ordinal() - c2.getSuit().ordinal());
-    }
+    public void sortBySuit() {
+        Comparator<Card> c = new SortBySuit()
+                .thenComparing(new SortBySuitInValueOrder());
 
+        this.hand.sort(c);
+    }
 }
