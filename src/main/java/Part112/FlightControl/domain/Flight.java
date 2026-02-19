@@ -1,5 +1,7 @@
 package Part112.FlightControl.domain;
 
+import java.text.MessageFormat;
+
 public class Flight {
 
     private Airplane airplane;
@@ -34,5 +36,10 @@ public class Flight {
 
     public void setTargetID(String targetID) {
         this.targetID = targetID;
+    }
+
+    @Override
+    public String toString() {
+        return MessageFormat.format("{0} ({1} capacity) ({2}-{3})",this.airplane.getAirplaneId(), this.airplane.getCapacity(),this.departureID, this.targetID);
     }
 }

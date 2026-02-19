@@ -17,7 +17,7 @@ public class FlightControlUI {
         this.scanner = scanner;
     }
 
-    public void airportAssetControl(){
+    public FlightInformation airportAssetControl(){
 
         String input = "";
         Set<Airplane> airplanes = new HashSet<>();
@@ -58,8 +58,39 @@ public class FlightControlUI {
 
                 } else {continue;}
             }
+        return fi;
+    }
+
+    public void flightControl(ArrayList<Flight> flights){
+
+        String input = "";
+        while(true){
+            System.out.println("Choose an action:");
+            System.out.println("[1]  Print airplanes");
+            System.out.println("[2]  Print flights");
+            System.out.println("[3] Print airplane details");
+            System.out.println("[x] Quit");
+            input = this.scanner.nextLine();
+            if(input.equals("x")){break;}
+
+            if(input.equals("1")){
+                flights.stream().map(Flight::getAirplane).forEach(System.out::println);
+            }
+
+            if(input.equals("2")){
+                flights.forEach(System.out::println);
+            }
+
+            if(input.equals("3")){
+                System.out.print("Give the airplane id: ");
+                String airplaneId = this.scanner.nextLine();
+                flights.stream().map(Flight::getAirplane).filter(a -> a.getAirplaneId().equals(airplaneId)).forEach(System.out::println);
+            }
         }
     }
+
+}
+
 
 
 

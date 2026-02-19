@@ -13,4 +13,9 @@ public class FlightInformation {
     public void add(Flight flight){
         this.flights.add(flight);
     }
+
+    public ArrayList<Flight> getFlights() {
+        return flights;
+    }
+
 }
