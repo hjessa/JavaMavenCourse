@@ -7,8 +7,8 @@ public class Airplane {
     private String airplaneId;
     private int capacity;
 
-    public Airplane(String Id, int cap){
-        this.airplaneId = Id;
+    public Airplane(String id, int cap){
+        this.airplaneId = id;
         this.capacity = cap;
     }
 
@@ -18,14 +18,6 @@ public class Airplane {
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void setAirplaneId(String airplaneId) {
-        this.airplaneId = airplaneId;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     @Override

@@ -2,7 +2,7 @@ package Part112.FlightControl.ui;
 
 import Part112.FlightControl.domain.Airplane;
 import Part112.FlightControl.domain.Flight;
-import Part112.FlightControl.domain.FlightInformation;
+import Part112.FlightControl.logic.FlightControlService;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,11 +17,10 @@ public class FlightControlUI {
         this.scanner = scanner;
     }
 
-    public FlightInformation airportAssetControl(){
+    public void airportAssetControl(FlightControlService fcs){
 
         String input = "";
-        Set<Airplane> airplanes = new HashSet<>();
-        FlightInformation fi = new FlightInformation();
+
         while(true){
             System.out.println("Choose an action:");
             System.out.println("[1] Add an airplane");
@@ -39,29 +38,32 @@ public class FlightControlUI {
                 String airplaneId = scanner.nextLine();
                 System.out.print("Give the airplane capacity: ");
                 int capacity = Integer.valueOf(scanner.nextLine());
-                airplanes.add(new Airplane(airplaneId,capacity));
+                fcs.addAirplane(airplaneId,new Airplane(airplaneId,capacity));
 
             }
 
             if(input.equals("2")){
                 System.out.print("Give the airplane id: ");
                 String airplaneId = scanner.nextLine();
-                Airplane toAdd = airplanes.stream().filter(a -> a.getAirplaneId().equals(airplaneId)).findFirst().orElse(null);
+                Airplane airplane = fcs.getAirplane(airplaneId);
+//                Airplane toAdd = airplanes.stream().filter(a -> a.getAirplaneId().equals(airplaneId)).findFirst().orElse(null);
 
-                    if(toAdd != null) {
+                    if(airplane != null) {
                         System.out.print("Give the departure airport id: ");
                         String departureId = scanner.nextLine();
                         System.out.print("Give the target airport id:  ");
                         String targetId = scanner.nextLine();
-                        fi.add(new Flight(toAdd,departureId,targetId));
+                        fcs.addFlight(new Flight(airplane,departureId,targetId));
                     }
 
-                } else {continue;}
+                } else {
+                System.out.println("Airplane nie istnieje");
+                continue;}
             }
-        return fi;
+
     }
 
-    public void flightControl(ArrayList<Flight> flights){
+    public void flightControl(FlightControlService fcs){
 
         String input = "";
         while(true){
@@ -74,17 +76,17 @@ public class FlightControlUI {
             if(input.equals("x")){break;}
 
             if(input.equals("1")){
-                flights.stream().map(Flight::getAirplane).forEach(System.out::println);
+                fcs.printAirplanes();
             }
 
             if(input.equals("2")){
-                flights.forEach(System.out::println);
+                fcs.printFlights();
             }
 
             if(input.equals("3")){
                 System.out.print("Give the airplane id: ");
                 String airplaneId = this.scanner.nextLine();
-                flights.stream().map(Flight::getAirplane).filter(a -> a.getAirplaneId().equals(airplaneId)).forEach(System.out::println);
+                System.out.println(fcs.getAirplane(airplaneId));
             }
         }
     }

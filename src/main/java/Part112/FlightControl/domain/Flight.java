@@ -26,17 +26,6 @@ public class Flight {
         return targetID;
     }
 
-    public void setAirplane(Airplane airplane) {
-        this.airplane = airplane;
-    }
-
-    public void setDepartureID(String departureID) {
-        this.departureID = departureID;
-    }
-
-    public void setTargetID(String targetID) {
-        this.targetID = targetID;
-    }
 
     @Override
     public String toString() {
