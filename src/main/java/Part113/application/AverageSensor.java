@@ -1,14 +1,17 @@
 package Part113.application;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AverageSensor implements Sensor{
 
     public ArrayList<Sensor> sensors;
 
+    public ArrayList<Integer> readings;
+
     public AverageSensor(){
         this.sensors = new ArrayList<>();
-
+        this.readings = new ArrayList<>();
     }
 
     @Override
@@ -48,7 +51,10 @@ public class AverageSensor implements Sensor{
                     .mapToInt(s -> s.read())
                     .sum();
 
-            return tempSum/this.sensors.size();
+
+            int result = tempSum/this.sensors.size();
+            this.readings.add(result);
+            return result;
 
         }else {
             throw new IllegalStateException("Lista pusta lub jeden z sensorów wyłączony");
@@ -57,5 +63,9 @@ public class AverageSensor implements Sensor{
 
     public void addSensor(Sensor sensor){
         this.sensors.add(sensor);
+    }
+
+    public List<Integer> readings(){
+        return this.readings;
     }
 }
