@@ -1,9 +1,1 @@
-
-Programming exercise:
-Saveable Dictionary (4 parts)
-
-
-https://java-programming.mooc.fi/part-11/4-processing-files
-
-
-Zrobić mapę w dwa kierunki zamiast 1, dodawać wpisy
+https://java-programming.mooc.fi/part-12/2-arraylist-and-hashtable
