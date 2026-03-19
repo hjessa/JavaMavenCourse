@@ -1,17 +1,22 @@
 package Part124;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args){
 
         int[][] matrix = {
-                {3, 2, 7, 6},
-                {2, 4, 1, 0},
-                {3, 2, 1, 0}
+                {3, 2, 7},
+                {2, 4, 1},
+                {3, 2, 1}
         };
 
         MagicSquare ms = new MagicSquare(matrix);
         System.out.println(ms.sumsOfRows());
+        System.out.println(ms.sumsOfColumns());
+        System.out.println(ms.sumsOfDiagonals());
+        System.out.println(Arrays.deepToString(ms.createMagicSquare()));
 
 //        System.out.println(arrayAsString(matrix));
 //        int rows = 2;
