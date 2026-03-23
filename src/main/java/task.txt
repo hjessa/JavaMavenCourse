@@ -1,1 +1,17 @@
 https://java-programming.mooc.fi/part-12/4-multidimensional-data
+
+
+generalnie chodzi o to ze jak wystepuje liczba na danym polu, to pozycja jest juz przesunieta w gore i w prawo
+powinien sprawdzic czy liczba istnieje zanim przesunie i dopierow wtedy decydowac czy gora prawo czy jedno w dol
+
+od nowa napisz
+
+
+sprawdzenie czy obie dlugosci sa rowne
+sprawdzenie czy sa nieparzyste
+
+wskaz srodkowa kolumne i wstaw wiersz 1
+
+
+sprawdz pozycje góra prawo jesli pasuje to wstawiaj i zaktualizuj parametry
+jest nie pasuje pozycja to jeden w dol i zaktualizuj parametry

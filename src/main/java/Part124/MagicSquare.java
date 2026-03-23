@@ -1,5 +1,6 @@
 package Part124;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class MagicSquare {
@@ -68,36 +69,65 @@ public class MagicSquare {
     public int[][] createMagicSquare(){
         int[][] ms = new int[3][3];
 
+        int i = ms[0].length * ms.length;
         //initializer
         int row = 0;
         int col = 1;
         int number = 1;
-        while(true){
+        int index = 0;
+        while(index < i){
+            System.out.println("Kolumna "+col);
+            System.out.println("Wiersz "+row);
             if(ms[row][col] != 0){
-                row--;
-                col++;
+                switch (row){
+                    case 0,1:
+                        row++;
+                        break;
+                    case 2:
+                        row =1;
+                        break;
+                }
+                ms[row][col] = number;
+                System.out.println("Wstawiłem liczbę "+number+" w kolumne "+col+" i wiersz "+row);
+                number++;
             }else{
                 ms[row][col] = number;
+                System.out.println("Wstawiłem liczbę "+number+" w kolumne "+col+" i wiersz "+row);
                 number++;
-                row--;
-                col++;
-            }
 
-            if(row < 0){
-                row = 2;
-            }
+                int newRow;
+                int newCol;
 
-            if(col == 2){
-                col = 0;
-            }
+                switch(row){
+                    case 0:
+                        newRow =2;
+                        break;
+                    case 1:
+                        newRow =0;
+                        break;
+                    case 2:
+                        newRow = 1;
+                        break;
+                }
 
-            this.sumsOfRows();
-            this.sumsOfDiagonals();
-            this.sumsOfColumns();
+                switch(col){
+                    case 0:
+                        newCol =1;
+                        break;
+                    case 1:
+                        newCol =2;
+                        break;
+                    case 2:
+                        newCol = 0;
+                        break;
+                }
+
+            }
+            index++;
 
         }
 
-        return magicSquare;
+        return ms;
     }
 
 }

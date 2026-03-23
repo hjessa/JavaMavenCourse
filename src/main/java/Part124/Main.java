@@ -17,6 +17,10 @@ public class Main {
         System.out.println(ms.sumsOfColumns());
         System.out.println(ms.sumsOfDiagonals());
         System.out.println(Arrays.deepToString(ms.createMagicSquare()));
+        int[][] matrix2 = ms.createMagicSquare();
+        System.out.println(matrix2.length);
+        System.out.println(matrix2[0].length);
+
 
 //        System.out.println(arrayAsString(matrix));
 //        int rows = 2;
