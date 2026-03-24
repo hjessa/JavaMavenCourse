@@ -1,35 +1,19 @@
 package Part124;
 
 import java.util.Arrays;
+import Part124.MagicSquareFactory;
 
 public class Main {
 
     public static void main(String[] args){
 
-        int[][] matrix = {
-                {3, 2, 7},
-                {2, 4, 1},
-                {3, 2, 1}
-        };
-
-        MagicSquare ms = new MagicSquare(matrix);
-        System.out.println(ms.sumsOfRows());
+        MagicSquare ms = MagicSquareFactory.createMagicSquare(3);
+        assert ms != null;
+        System.out.println(ms);
         System.out.println(ms.sumsOfColumns());
+        System.out.println(ms.sumsOfRows());
         System.out.println(ms.sumsOfDiagonals());
-        System.out.println(Arrays.deepToString(ms.createMagicSquare()));
-        int[][] matrix2 = ms.createMagicSquare();
-        System.out.println(matrix2.length);
-        System.out.println(matrix2[0].length);
 
-
-//        System.out.println(arrayAsString(matrix));
-//        int rows = 2;
-//        int columns = 3;
-//        int[][] matrix = new int[rows][columns];
-//        matrix[0][1] = 5;
-//        matrix[1][0] = 3;
-//        matrix[1][2] = 7;
-//        System.out.println(arrayAsString(matrix));
     }
 
 
