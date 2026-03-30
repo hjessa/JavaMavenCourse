@@ -11,20 +11,44 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ButtonAndLabel extends Application{
 
     public void start(Stage window) {
 
         BorderPane bp = new BorderPane();
-        bp.setCenter(new TextArea(""));
+        TextArea text = new TextArea();
+        bp.setCenter(text);
+        Label letters = new Label("Letters: 0");
+        Label words = new Label("Words: 0");
+        Label longestWord = new Label("The longest word is: 0");
+
+        text.textProperty().addListener((change, oldValue, newValue) ->{
+            int charLength = newValue.length();
+            String []parts = newValue.split(" ");
+            int wordsLength = parts.length;
+
+            String longest = Arrays.stream(parts)
+                    .filter(s -> !s.isEmpty())
+                            .max(Comparator.comparingInt(String::length))
+                                    .orElse("");
+
+            letters.setText("Letters: "+String.valueOf(charLength));
+            words.setText("Words: "+String.valueOf(wordsLength));
+            longestWord.setText("The longest word is: "+String.valueOf(longest));
+
+        });
 
         HBox hbox = new HBox();
         hbox.setSpacing(10);
-        hbox.getChildren().add(new Label("Letters: 0"));
-        hbox.getChildren().add(new Label("Words: 0"));
-        hbox.getChildren().add(new Label("The longest word is: "));
+        hbox.getChildren().add(letters);
+        hbox.getChildren().add(words);
+        hbox.getChildren().add(longestWord);
 
         bp.setBottom(hbox);
+
 
         Scene scene = new Scene(bp);
 
