@@ -1,5 +1,5 @@
 https://java-programming.mooc.fi/part-13/5-multiple-views
 
 
-
-Views with the same main alignment
+Programming exercise:
+Vocabulary practice
