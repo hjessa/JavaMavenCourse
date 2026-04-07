@@ -16,31 +16,31 @@ public class VocabularyInterface extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+
+        Dictionary dc = new Dictionary();
+        InputView iv = new InputView(dc);
+        PracticeView pv = new PracticeView(dc);
+
         Button newWord = new Button("Enter new words");
         Button practice = new Button("Practice");
-        Button add = new Button("Add new pair");
-        Button check = new Button("Check translation");
-
-        Label word = new Label("Word");
-        Label translation = new Label("Translation");
-        Label translateTheWord = new Label();
-
-        TextField wordtf = new TextField();
-        TextField translationtf = new TextField();
-        TextField translateTheWordtf= new TextField();
 
         BorderPane layout = new BorderPane();
         HBox buttons = new HBox();
         buttons.getChildren().addAll(newWord,practice);
 
-        VBox content = new VBox();
-        content.getChildren().addAll(word,wordtf,translation,translationtf);
-
         layout.setTop(buttons);
-        layout.setCenter(content);
+        layout.setCenter(iv.getView());
 
         Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
+
+        newWord.setOnMouseClicked(mouseEvent -> {
+            layout.setCenter(iv.getView());
+        });
+
+        practice.setOnMouseClicked(mouseEvent -> {
+            layout.setCenter(pv.getView());
+        });
     }
 }

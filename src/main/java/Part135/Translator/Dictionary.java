@@ -29,15 +29,17 @@ public class Dictionary {
     }
 
     public String getRandomWord(){
-        Random randInt = new Random();
-        int randomNumber = randInt.nextInt(0,this.dictionary.size());
-        int i = 0;
+        if(!this.dictionary.isEmpty()){
+            Random randInt = new Random();
+            int randomNumber = randInt.nextInt(0,this.dictionary.size());
+            int i = 0;
 
-        for (String value : dictionary.values()) {
-            if(i == randomNumber){
-                return value;
+            for (String value : dictionary.values()) {
+                if(i == randomNumber){
+                    return value;
+                }
+                i++;
             }
-            i++;
         }
 
         return null;
