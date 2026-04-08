@@ -28,13 +28,12 @@ public class PracticeView {
 
         check.setOnMouseClicked((event) -> {
 
-            String randomWord = this.dictionary.getRandomWord();
             String translation = translateTheWordtf.getText();
-            if(this.dictionary.getTranslation(translation) != null){
+            if(this.dictionary.getTranslation(this.word).equals(translation)){
                 answer.setText("Correct!");
 
             }else{
-                answer.setText("Not correct, the translation is "+this.dictionary);
+                answer.setText("Not correct, the translation is "+this.dictionary.getTranslation(this.word));
             }
             this.word = dictionary.getRandomWord();
             translateTheWord.setText("Translate the word"+" "+this.word);
