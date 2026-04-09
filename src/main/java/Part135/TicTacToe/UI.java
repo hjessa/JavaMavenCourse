@@ -13,8 +13,12 @@ import javafx.stage.Stage;
 
 public class UI extends Application {
 
+
+
     @Override
     public void start(Stage stage) throws Exception {
+
+        String[][] plan = new String[3][3];
 
         Label topText = new Label("Turn: X");
         topText.setFont(Font.font("Arial", 40));
@@ -135,34 +139,32 @@ public class UI extends Application {
         stage.setScene(scene);
         stage.show();
 
-        putSign(left1,topText);
-        putSign(left2,topText);
-        putSign(left3,topText);
-        putSign(center1,topText);
-        putSign(center2,topText);
-        putSign(center3,topText);
-        putSign(right1,topText);
-        putSign(right2,topText);
-        putSign(right3,topText);
-
-
+        Logic.putSign(left1,topText,plan);
+        Logic.putSign(left2,topText,plan);
+        Logic.putSign(left3,topText,plan);
+        Logic.putSign(center1,topText,plan);
+        Logic.putSign(center2,topText,plan);
+        Logic.putSign(center3,topText,plan);
+        Logic.putSign(right1,topText,plan);
+        Logic.putSign(right2,topText,plan);
+        Logic.putSign(right3,topText,plan);
 
     }
 
-    public static void putSign(Button button, Label label){
-        button.setOnMouseClicked((mouseEvent -> {
-            if(!button.getText().isEmpty()){
-                return;
-            }
-
-            String turn = label.getText().split(" ")[1];
-            if(turn.equals("X")){
-                button.setText("X");
-                label.setText("Turn: 0");
-            }else{
-                button.setText("0");
-                label.setText("Turn: X");
-            }
-        }));
-    }
+//    public static void putSign(Button button, Label label){
+//        button.setOnMouseClicked((mouseEvent -> {
+//            if(!button.getText().isEmpty()){
+//                return;
+//            }
+//
+//            String turn = label.getText().split(" ")[1];
+//            if(turn.equals("X")){
+//                button.setText("X");
+//                label.setText("Turn: 0");
+//            }else{
+//                button.setText("0");
+//                label.setText("Turn: X");
+//            }
+//        }));
+//    }
 }

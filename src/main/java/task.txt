@@ -1,9 +1,4 @@
 https://java-programming.mooc.fi/part-13/5-multiple-views
 
 
-Złe reguły tłumaczenia powinno być contains KEY itd, a nie get transaltion
-
-
-
-Programming exercise:
-Vocabulary practice
+Poprawić klase Logic przepisać na kilka funkcji, zobaczyć jak można zablokować okna że to koniec gry
