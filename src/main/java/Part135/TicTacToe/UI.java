@@ -139,32 +139,16 @@ public class UI extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Logic.putSign(left1,topText,plan);
-        Logic.putSign(left2,topText,plan);
-        Logic.putSign(left3,topText,plan);
-        Logic.putSign(center1,topText,plan);
-        Logic.putSign(center2,topText,plan);
-        Logic.putSign(center3,topText,plan);
-        Logic.putSign(right1,topText,plan);
-        Logic.putSign(right2,topText,plan);
-        Logic.putSign(right3,topText,plan);
+        Logic.putSign(left1,topText,plan,layout);
+        Logic.putSign(left2,topText,plan,layout);
+        Logic.putSign(left3,topText,plan,layout);
+        Logic.putSign(center1,topText,plan,layout);
+        Logic.putSign(center2,topText,plan,layout);
+        Logic.putSign(center3,topText,plan,layout);
+        Logic.putSign(right1,topText,plan,layout);
+        Logic.putSign(right2,topText,plan,layout);
+        Logic.putSign(right3,topText,plan,layout);
 
     }
 
-//    public static void putSign(Button button, Label label){
-//        button.setOnMouseClicked((mouseEvent -> {
-//            if(!button.getText().isEmpty()){
-//                return;
-//            }
-//
-//            String turn = label.getText().split(" ")[1];
-//            if(turn.equals("X")){
-//                button.setText("X");
-//                label.setText("Turn: 0");
-//            }else{
-//                button.setText("0");
-//                label.setText("Turn: X");
-//            }
-//        }));
-//    }
 }
