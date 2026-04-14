@@ -21,7 +21,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>src/main/java/Part134/UserTitle.java</mainClass>
+                    <mainClass>src/main/java/Part141/DataVisualization.java</mainClass>
                 </configuration>
             </plugin>
         </plugins>
