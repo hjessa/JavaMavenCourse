@@ -21,7 +21,7 @@ public class PartiesApplication extends Application {
 
     public void start(Stage stage){
 
-        NumberAxis xAxis = new NumberAxis(1968,2007,4);
+        NumberAxis xAxis = new NumberAxis(1968,2008,4);
         NumberAxis yAxis = new NumberAxis(0,30,5);
 
         yAxis.setLabel("Value");
@@ -30,18 +30,16 @@ public class PartiesApplication extends Application {
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis,yAxis);
         lineChart.setTitle("Partie i jakieś liczby");
 
-        XYChart.Series<Number,Number> xyChart = new XYChart.Series<>();
-        xyChart.setName("linia 1");
-        xyChart.getData().add(new XYChart.Data<>(1,1));
 
-        //Metoda do tworzenia serii
+        List<XYChart.Series<Number,Number>> seriesList = readWriteData("C:\\Users\\hubert\\IdeaProjects\\JavaLearningMaven\\src\\main\\java\\Part141\\partiesdata.csv");
+        seriesList.forEach(it -> lineChart.getData().add(it));
 
         Scene scene = new Scene(lineChart);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void readWriteData(String filename){
+    public List<XYChart.Series<Number,Number>> readWriteData(String filename){
 
         //Odczytam dane z pliku
         List<XYChart.Series<Number,Number>> seriesList = new ArrayList<>();
@@ -50,6 +48,8 @@ public class PartiesApplication extends Application {
             //muszę pominąć 1 wiersz
             String years = file.nextLine();
             String[] splittedYears = years.split("\t");
+            System.out.println(splittedYears[0]);
+            System.out.println(splittedYears[1]);
             while(file.hasNextLine()){
 
                 String line = file.nextLine();
@@ -60,8 +60,10 @@ public class PartiesApplication extends Application {
                 //Ustawiam 1 jako nazwe
                 series.setName(row[0]);
                 for (int i = 1; i < min(row.length, splittedYears.length); i++) {
+                    System.out.println("Year: "+Integer.valueOf(splittedYears[i])+"  Val: "+Double.valueOf(row[i]));
                     series.getData().add(new XYChart.Data<>(Integer.valueOf(splittedYears[i]),Double.valueOf(row[i])));
                 }
+
 
                 seriesList.add(series);
 
@@ -70,10 +72,7 @@ public class PartiesApplication extends Application {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        //Pierwsza linia mi nada nazwy serii
-        //Kolejna będzie wstawiać do serii
-        //na końcu dodam do linechartu wszystkie serie
 
-        //pytanie jak efektywnie przeczytać plik wierszami czy kolumnami
+        return seriesList;
     }
 }
