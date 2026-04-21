@@ -21,7 +21,7 @@ public class PartiesApplication extends Application {
 
     public void start(Stage stage){
 
-        NumberAxis xAxis = new NumberAxis(1968,2008,4);
+        NumberAxis xAxis = new NumberAxis(0,1000,4);
         NumberAxis yAxis = new NumberAxis(0,30,5);
 
         yAxis.setLabel("Value");

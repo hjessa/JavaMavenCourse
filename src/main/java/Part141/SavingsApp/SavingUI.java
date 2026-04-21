@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,8 @@ public class SavingUI extends Application {
         NumberAxis xAxisYears = new NumberAxis(0,30,1);
         NumberAxis yAxisValue = new NumberAxis();
         LineChart<Number,Number> linechart = new LineChart<>(xAxisYears,yAxisValue);
+        XYChart.Series<Number,Number> savingsLine = new XYChart.Series<>();
+        linechart.getData().add(savingsLine);
 
         components.setCenter(linechart);
 
@@ -45,6 +48,22 @@ public class SavingUI extends Application {
         topMenuSecond.setCenter(topMenuSecondCenterSlider);
         Label topMenuSecondRightLabel = new Label("0");
         topMenuSecond.setRight(topMenuSecondRightLabel);
+
+        topMenuFirstCenterSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
+            savingsLine.getData().clear();
+            double value = topMenuFirstCenterSlider.getValue();
+            System.out.println(value);
+            double upperBound = xAxisYears.getUpperBound();
+            System.out.println(upperBound);
+            double increment = xAxisYears.getTickUnit();
+            System.out.println(increment);
+
+
+            for (double i = 0; i < upperBound; i++) {
+                savingsLine.getData().add(new XYChart.Data<>(value*i,i));
+            }
+
+        });
 
         topMenu.getChildren().addAll(topMenuFirst,topMenuSecond);
         components.setTop(topMenu);
