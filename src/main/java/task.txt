@@ -1,3 +1,2 @@
-https://java-programming.mooc.fi/part-14/1-data-visualization
-
-Displaying the savings
+https://java-programming.mooc.fi/part-14/2-multimedia-in-programs
+Images

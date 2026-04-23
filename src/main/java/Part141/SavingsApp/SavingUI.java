@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import jdk.jfr.Percentage;
 
 
 public class SavingUI extends Application {
@@ -27,6 +28,9 @@ public class SavingUI extends Application {
         XYChart.Series<Number,Number> savingsLine = new XYChart.Series<>();
         linechart.getData().add(savingsLine);
 
+        XYChart.Series<Number,Number> interestLine = new XYChart.Series<>();
+        linechart.getData().add(interestLine);
+
         components.setCenter(linechart);
 
         VBox topMenu = new VBox();
@@ -35,7 +39,11 @@ public class SavingUI extends Application {
 
         Label topMenuFirstLeftLabel = new Label("Monthly savings");
         topMenuFirst.setLeft(topMenuFirstLeftLabel);
-        Slider topMenuFirstCenterSlider = new Slider(25,250,25);
+        Slider topMenuFirstCenterSlider = new Slider(0,250,25);
+        topMenuFirstCenterSlider.setMajorTickUnit(1);
+        topMenuFirstCenterSlider.setMinorTickCount(0);
+        topMenuFirstCenterSlider.setSnapToTicks(true);
+
         topMenuFirst.setCenter(topMenuFirstCenterSlider);
         Label topMenuFirstRightLabel = new Label("25");
         topMenuFirst.setRight(topMenuFirstRightLabel);
@@ -45,6 +53,9 @@ public class SavingUI extends Application {
         Label topMenuSecondLeftLabel = new Label("Yearly interest rate");
         topMenuSecond.setLeft(topMenuSecondLeftLabel);
         Slider topMenuSecondCenterSlider = new Slider(0,10,1);
+        topMenuSecondCenterSlider.setMajorTickUnit(1);
+        topMenuSecondCenterSlider.setMinorTickCount(0);
+        topMenuSecondCenterSlider.setSnapToTicks(true);
         topMenuSecond.setCenter(topMenuSecondCenterSlider);
         Label topMenuSecondRightLabel = new Label("0");
         topMenuSecond.setRight(topMenuSecondRightLabel);
@@ -60,9 +71,31 @@ public class SavingUI extends Application {
 
 
             for (double i = 0; i < upperBound; i++) {
-                savingsLine.getData().add(new XYChart.Data<>(value*i,i));
+                savingsLine.getData().add(new XYChart.Data<>(i,value*i*12));
             }
 
+        });
+
+        topMenuSecondCenterSlider.valueProperty().addListener((observable, oldVal, newVal)->{
+            interestLine.getData().clear();
+
+            double monthly = topMenuFirstCenterSlider.getValue();
+            double rate = topMenuSecondCenterSlider.getValue();
+
+            double total = 0;
+
+            double upperBound = xAxisYears.getUpperBound();
+
+            for (int i = 1; i <= upperBound; i++) {
+
+                // dodajesz roczne wpłaty
+                total += monthly * 12;
+
+                // naliczasz procent
+                total = total * (1 + rate / 100);
+
+                interestLine.getData().add(new XYChart.Data<>(i, total));
+            }
         });
 
         topMenu.getChildren().addAll(topMenuFirst,topMenuSecond);
